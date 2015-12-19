@@ -4,7 +4,9 @@
 
 [![Bower version](https://badge.fury.io/bo/map-effects-100.svg)](http://badge.fury.io/bo/badges)
 
-Cool tips to design UI/UX on your Map.
+<img src="MapEffects100.png" width="600px"/>
+
+[__Map Effects 100__](http://muxlab.github.io/map-effects-100/) has cool tips to design UI/UX on your Map.
 
 ### Map?
 
@@ -17,6 +19,8 @@ bower install map-effects-100
 ```
 
 ## Index
+
+[__Main page__](http://muxlab.github.io/map-effects-100/)
 
 1. [Fade-in Highlight Style](http://muxlab.github.io/map-effects-100/Leaflet/01_fadein-highlight.html)
 * [Classified Highlight Color](http://muxlab.github.io/map-effects-100/Leaflet/02_classified-highlightcolor.html)
@@ -31,6 +35,10 @@ bower install map-effects-100
 * [Container Scroll Driven Map Navigation](http://muxlab.github.io/map-effects-100/Leaflet/11_scroll-driven-map-navigation.html)
 * [Map Driven Container Scroll Navigation](http://muxlab.github.io/map-effects-100/Leaflet/12_map-driven-scroll-navigation.html)
 * [Social Media Avatar on Map](http://muxlab.github.io/map-effects-100/Leaflet/13_avatar-icon.html)
+* [Custom Popup with D3](http://muxlab.github.io/map-effects-100/Leaflet/14_custom-popup.html)
+* [SVG Border Line Generation](http://muxlab.github.io/map-effects-100/Leaflet/15_svg-border-generation.html)
+* [Responsive Popup with Picture](http://muxlab.github.io/map-effects-100/Leaflet/16_responsive-popup.html)
+* [Map on Video](http://muxlab.github.io/map-effects-100/Leaflet/17_map-on-video.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
@@ -44,6 +52,9 @@ __Library__
 * [D3](http://d3js.org/)
 * [Chart.js](http://www.chartjs.org/)
 * [Turf](http://turfjs.org/)
+
+__CSS__
+* [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 
 __Leaflet Plugin__
 * [Leaflet.RaphaelLayer](http://dynmeth.github.io/RaphaelLayer/)

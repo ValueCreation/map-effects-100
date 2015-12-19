@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <style>
+        html, body, #map {
+          height: 600px;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo" Helvetica, Arial, sans-serif;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 45px;
+          color: #fff;
+        }
+        /* Custom icon style */
+        .leaflet-avator-icon {
+          border: 4px #fff solid; /* Inner border */
+          border-radius: 40px; /* Making round */
+          -webkit-border-radius: 40px;
+          box-shadow: 0 0 0 2px #00D0CE, 0 8px 5px rgba(0,0,0,0.4); /* Outer border and shadow */
+        }
+
+        /* Custom Popup */
+        .leaflet-popup {
+          width: 300px;
+          transition: opacity 1s linear;
+        }
+
+        .leaflet-popup-content-wrapper {
+          width: 280px;
+          border-radius: 0;
+          float: left;
+          color: white;
+          background: rgba(255,100,0,0.8);
+          box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+
+        .leaflet-popup-content-wrapper a {
+          color: white;
+          font-size: 12pt;
+        }
+        .leaflet-popup-content-wrapper h1 {
+          color: white;
+          font-size: 22pt;
+        }
+        .leaflet-popup-content-wrapper h2 {
+          color: white;
+          font-size: 18pt;
+        }
+        .leaflet-popup-content-wrapper h3 {
+          color: white;
+          font-size: 16pt;
+        }
+        .leaflet-popup-content-wrapper h4 {
+          color: white;
+          font-size: 14pt;
+        }
+        .leaflet-popup-content-wrapper h5 {
+          color: white;
+          font-size: 12pt;
+        }
+        .leaflet-popup-content-wrapper p {
+          color: white;
+          font-size: 12pt;
+        }
+
+        .leaflet-popup-tip-container {
+          height: 70px;
+          margin-bottom: 6px;
+        }
+        .leaflet-popup-tip {
+          display: none;
+          background: rgba(0,0,0,0);
+          box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+        .leaflet-popup-tip-svg {
+          margin: 0 auto;
+          position: relative;
+          overflow: hidden;
+          display: block;
+          width: 2px;
+          height: 100px;
+        }
+
+        .leaflet-container a.leaflet-popup-close-button {
+          color: white;
+          padding: 9px 25px 0 0;
+        }
+        .leaflet-container a.leaflet-popup-close-button:hover {
+          color: #ffe8a5;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>14. Custom Popup with D3</p></div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+    <!-- build:remove -->
+    <script src="14_custom-popup.js"></script>
+    <!-- /build -->
+<script>
+/* jsFile 14 */</script>
+  </body>
+</html>

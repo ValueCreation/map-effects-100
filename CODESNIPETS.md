@@ -313,3 +313,264 @@ var AvatarIcon = L.Icon.extend({
   }
 });
 ```
+* [14_custom-popup.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/14_custom-popup.html)
+```css
+/* Custom Popup */
+.leaflet-popup {
+  width: 300px;
+  transition: opacity 1s linear;
+}
+.leaflet-popup-content-wrapper {
+  width: 280px;
+  border-radius: 0;
+  float: left;
+  color: white;
+  background: rgba(255,100,0,0.8);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.leaflet-popup-content-wrapper a {
+  color: white;
+  font-size: 12pt;
+}
+.leaflet-popup-content-wrapper h1 {
+  color: white;
+  font-size: 22pt;
+}
+.leaflet-popup-content-wrapper h2 {
+  color: white;
+  font-size: 18pt;
+}
+.leaflet-popup-content-wrapper h3 {
+  color: white;
+  font-size: 16pt;
+}
+.leaflet-popup-content-wrapper h4 {
+  color: white;
+  font-size: 14pt;
+}
+.leaflet-popup-content-wrapper h5 {
+  color: white;
+  font-size: 12pt;
+}
+.leaflet-popup-content-wrapper p {
+  color: white;
+  font-size: 12pt;
+}
+.leaflet-popup-tip-container {
+  height: 70px;
+  margin-bottom: 6px;
+}
+.leaflet-popup-tip {
+  display: none;
+  background: rgba(0,0,0,0);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.leaflet-popup-tip-svg {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 2px;
+  height: 100px;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  color: white;
+  padding: 9px 25px 0 0;
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #ffe8a5;
+}
+```
+```javascript
+// Custom Popup
+map.on('popupopen', function (e) {
+  var svg = d3.select(".leaflet-popup-tip-container").append("svg")
+      .attr({
+        class: 'leaflet-popup-tip-svg',
+        width: 2,
+        height: 100,
+      });
+  var c1 = [1, 0];
+  var c2 = [1, 91];
+  var carray = [c1, c2];
+  var line = d3.svg.line()
+      .x(function(d) {return d[0];})
+      .y(function(d) {return d[1];});
+  var path = svg.append('path')
+      .attr({
+        'class': 'leaflet-popup-tip-path',
+        'd': line(carray),
+        'stroke': 'rgba(255,100,0,0.8)',
+        'stroke-width': 2,
+        'stroke-dashoffset': 91
+      })
+      .style("stroke-dasharray", "91")
+      .style("stroke-linecap", "round");
+  path.transition().delay(300).duration(1000).attr('stroke-dashoffset', 0);
+});
+map.on('popupclose', function (e) {
+  e.popup._tipContainer.children[1].remove();
+});
+```
+* [15_svg-border-generation.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/15_svg-border-generation.html)
+```css
+svg.leaflet-zoom-animated > g > path {
+  /* for a border line generation */
+  stroke-dashoffset: 700;
+  stroke-dasharray: 700;
+  stroke-linecap: round;
+}
+```
+```javascript
+// Border line generation
+d3.selectAll('.leaflet-zoom-animated').selectAll('g').selectAll('path').transition().delay(300).duration(7000).style('stroke-dashoffset', 0);
+```
+* [16_responsive-popup.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/16_responsive-popup.html)
+```css
+/* Responsive Popup Style */
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
+  padding: 0;
+}
+.leaflet-popup-content {
+  margin: 0;
+}
+.time {
+  padding-top: 7px;
+}
+.date {
+  font-size: 16pt;
+  margin-bottom: -6px;
+}
+.pict-into-popup {
+  overflow: hidden;
+  cursor: pointer;
+}
+.pict {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.pict:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.likes-into-popup {
+  height: 14px;
+  padding: 0 25px 25px 25px;
+}
+.likes-count {
+  height: 14px;
+  color: #777;
+  cursor: pointer;
+}
+.likes-count:hover {
+  color: red;
+}
+.likes-icon {
+  display: inline-block;
+  height: 14px;
+  width: 15px;
+  margin-right: 5px;
+}
+@media (max-width: 600px) {
+  div.leaflet-popup.leaflet-zoom-animated {
+    width: 150px;
+  }
+  .leaflet-popup-content {
+    margin: 0 -1px 0 0;
+    width: 150px;
+  }
+  .pict-into-popup {
+    width: 150px;
+  }
+  .pict {
+    width: 150px;
+    height: 150px;
+  }
+  .time-into-popup {
+    margin: 15px;
+    position: absolute;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    color: white;
+    background-color: red;
+    text-align: center;
+    font-size: 7pt;
+    font-weight: bold;
+  }
+  .comment-into-popup {
+    color: red;
+    width: 100px;
+    padding: 25px;
+    font-size: 9pt;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+}
+@media (min-width: 600px) {
+  div.leaflet-popup.leaflet-zoom-animated {
+    width: 250px;
+  }
+  .leaflet-popup-content {
+    margin: 0 -1px 0 0;
+  }
+  .pict-into-popup {
+    width: 250px;
+  }
+  .pict {
+    width: 250px;
+    height: 250px;
+  }
+  .time-into-popup {
+    margin: 25px;
+    position: absolute;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    color: white;
+    background-color: red;
+    text-align: center;
+    font-size: 7pt;
+    font-weight: bold;
+  }
+  .comment-into-popup {
+    color: red;
+    width: 250px;
+    padding: 25px;
+    font-size: 12pt;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+}
+```
+```javascript
+var content = '<div class="time-into-popup"><div class="time"><div class="date">' + date + '</div><div class="day">' + month + '</div></div></div>'
+ + '<div class="pict-into-popup"><img class="pict" src="' + val.images.standard_resolution.url + '"></div>'
+ + '<div class="comment-into-popup">' + val.comment + '</div>'
+ + '<div class="likes-into-popup"><span class="likes-count"><i class="fa fa-heart likes-icon"></i>' + val.likes + '</span></div>'
+var pictures = L.marker(val.location).addTo(map)
+  .bindPopup(content);
+```
+* [17_map-on-video.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/17_map-on-video.html)
+```css
+#bg {
+  height: 750px;
+  position: absolute;
+}
+#video {
+  max-height: 100%;
+  width: auto;
+  transform: translateX(0px);
+}
+#map {
+  opacity: 0.7;
+}
+.leaflet-container {
+  background: rgba(0,0,0,0);
+}
+```
